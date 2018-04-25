@@ -13,3 +13,4 @@ class QidianItem(scrapy.Item):
     # name = scrapy.Field()
     chapter = scrapy.Field() # 章节
     text = scrapy.Field()    # 正文
+    title = scrapy.Field()   #标题
