@@ -49,10 +49,10 @@ class QidianSpider(scrapy.Spider):
         le = LinkExtractor(allow=pattern)
         links = le.extract_links(response)
         download_dict = collections.OrderedDict()
-#        path = response.xpath('')
+
         for link in links:
             if link.text:
-                time.sleep(5)  # 时间要设置，因为yield之后就进习行下一个循环，所以下载并不是顺序的
+                time.sleep(0.5)  # 时间要设置，因为yield之后就进习行下一个循环，所以下载并不是顺序的
                 download_dict[link.url] = link.text
                 yield scrapy.Request(link.url, callback=self.parse_text)
 
